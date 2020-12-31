@@ -93,6 +93,13 @@
       group: csgoserver
     register: csgocfg
 
+  - name: make addons folder
+    shell: mkdir /home/csgoserver/
+  - name: COPY SM, MM, get5, SQLMATCHES
+    copy:
+      src: files/addons/
+      dest: /home/csgoserver/serverfiles/csgo/addons/
+
   - name: Restart the server
     become_user: csgoserver
     shell: ~/csgoserver restart
