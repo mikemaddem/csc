@@ -7,7 +7,11 @@
   tasks:
   - name: add i386 arch
     command: dpkg --add-architecture i386
-  
+
+  - name: import gslt vars
+    include_vars:
+       file: variables.yaml
+       
   - name: update package list
     apt:
       update_cache: yes
