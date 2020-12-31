@@ -82,8 +82,8 @@
     when: not csgoserver_file.stat.exists
 
   - name: Copy server configuration
-    copy:
-      src: files/server.cfg
+    template:
+      src: files/server.cfg.j2
       dest: /home/csgoserver/serverfiles/csgo/cfg/csgoserver.cfg
       owner: csgoserver
       group: csgoserver
